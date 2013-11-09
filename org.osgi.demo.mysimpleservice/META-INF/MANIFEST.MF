@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MySimpleService
+Bundle-SymbolicName: org.osgi.demo.mysimpleservice
+Bundle-Version: 1.0.0
+Bundle-Activator: org.osgi.demo.mysimpleservice.activator.Activator
+Bundle-Vendor: Pierrick MARIE
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
+Export-Package: org.osgi.demo.mysimpleservice
