@@ -27,7 +27,7 @@ public class Activator implements BundleActivator {
 	 * */
 	public void start(final BundleContext context) throws Exception {
 
-		//register location service
+		//register location bundke
 		Dictionary<String, String> properties = new Hashtable<String, String>();
 		properties.put("name", "org.ups.locationrandom");
 		context.registerService(ILocation.class.getName(), this.location, properties);
@@ -43,6 +43,7 @@ public class Activator implements BundleActivator {
 	 * */
 	public void stop(final BundleContext context) throws Exception {
 		stopThread();
+		this.location = null;
 		System.out.println("Location bundle : stop, goodbye !");
 	}
 	
@@ -90,6 +91,7 @@ public class Activator implements BundleActivator {
 	 * */
 	private void stopThread(){
 		this.stopThreadLocation = true; //change the flag value
-		locationThread.interrupt(); // and interrupt the thread
+		this.locationThread.interrupt(); // and interrupt the thread
+		this.locationThread = null;
 	}
 }
