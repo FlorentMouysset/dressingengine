@@ -29,7 +29,7 @@ public class Activator implements BundleActivator {
 
 		//register location service
 		Dictionary<String, String> properties = new Hashtable<String, String>();
-		properties.put("name", "org.ups.location");
+		properties.put("name", "org.ups.locationrandom");
 		context.registerService(ILocation.class.getName(), this.location, properties);
 		System.out.println("Location bundle : registration done !");
 
