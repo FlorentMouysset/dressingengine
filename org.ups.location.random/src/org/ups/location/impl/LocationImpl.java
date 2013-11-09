@@ -13,7 +13,7 @@ public class LocationImpl implements ILocation {
 	private float longitude;
 	
 
-	public LocationImpl(List<ILocationListener> listeners) {
+	public LocationImpl() {
 		super();
 		this.listeners = new ArrayList<ILocationListener>();
 	}
