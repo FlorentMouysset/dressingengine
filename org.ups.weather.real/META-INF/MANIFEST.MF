@@ -9,4 +9,3 @@ Bundle-Vendor: UPS
 Import-Package: org.osgi.framework,
  org.ups.location
 
-
