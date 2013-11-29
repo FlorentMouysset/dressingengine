@@ -1,0 +1,7 @@
+#ADAPTER#ACCESS#JAVA-APP/eclipseRPCKeplerSR1/plugins/org.eclipse.osgi_3.9.1.v20130814-1242.jar[+org/osgi/framework/*:?**/*]
+#ADAPTER#ACCESS#org.ups.weather/bin/[+org/ups/weather/*:?**/*]
+#ADAPTER#ACCESS#org.ups.weather_1.0.0/bin/[+org/ups/weather/*:?**/*]
+#ADAPTER#ACCESS#org.ups.weather/@dot[+org/ups/weather/*:?**/*]
+#ADAPTER#ACCESS#org.ups.weather_1.0.0/@dot[+org/ups/weather/*:?**/*]
+#ADAPTER#ACCESS#org.ups.location/bin/[?**/*]
+#ADAPTER#ACCESS#org.ups.location/@dot[?**/*]
