@@ -65,7 +65,7 @@ public class RandomLocation implements ILocation, Runnable {
 			System.out.println("Location bundle : new location computed, all listeners are notify.");
 			
 			try {
-				Thread.sleep(10000); //sleep 10 sec
+				Thread.sleep(15000); //sleep 15 sec
 			} catch (InterruptedException e) {
 					System.out.println("Location bundle : The thread refuse to sleep ! See the follow stack trace : ");
 					e.printStackTrace();

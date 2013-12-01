@@ -1,4 +1,4 @@
-package org.ups.weather.activator;
+package org.ups.weather.random.activator;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -16,14 +16,21 @@ public class Activator implements BundleActivator{
 	private IWeather weather = null;
 	private ILocation location = null;
 	private ILocationListener locationListener = null;
+	private Runnable thread = null;
 
 
 	public Activator() {
 		this.weather = new RandomWeather();
 		//make a runnable and launch the "location" thread
 		//launch the thread
-		this.weather = (IWeather) new Thread((Runnable) weather);
+	//	System.out.println("ici const weather random bisd");
 		
+		//Runnable tmp = (Runnable) weather;
+		//System.out.println("ici 2");
+		this.thread =  new Thread((Runnable) weather);
+		//System.out.println("thread lauch");
+		//this.weather = (IWeather) this.thread; ERREUR !!
+		//System.out.println("ici 4");
 	}
 
 	/**
@@ -42,7 +49,7 @@ public class Activator implements BundleActivator{
 		//get location service (random version)
 		//TODO filtrage !
 		//ServiceReference<?>[] references = context.getServiceReferences(ILocation.class.getName(), "(name=org.ups.locationrandom)");
-		ServiceReference<?>[] references = context.getServiceReferences(ILocation.class.getName(), "(name=*)");
+		ServiceReference<?>[] references = context.getServiceReferences(ILocation.class.getName(), "(name=org.ups.locationrandom)");
 
 		//System.out.println("check0 = " + references.length);
 		ServiceReference<?> reference = references[0];
@@ -61,15 +68,19 @@ public class Activator implements BundleActivator{
 		this.location.addListener(this.locationListener);
 		((RandomWeather) this.weather).setLocation(this.location);
 		
-		((Thread) this.weather).start();
+		((Thread) this.thread).start();
+	//	System.out.println("fin start acti loc random");
 	}
 
 	/**
 	 * Stop the "weather" bundle -> stop the "weather" thread.
 	 * */
 	public void stop(BundleContext context) throws Exception {
-		((RandomWeather) weather).stopThread();
+		((RandomWeather) this.weather).stopThread();
+
+		//System.out.println("stopThread ok loca");
 		this.location.removeListener(this.locationListener);
+		//System.out.println("remove listener location ok");
 		this.weather = null;
 		this.location = null;
 		System.out.println("Weather bundle : stop, goodbye !");

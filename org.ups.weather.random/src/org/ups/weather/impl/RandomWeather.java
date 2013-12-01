@@ -51,7 +51,8 @@ public class RandomWeather implements IWeather, Runnable {
 	}
 
 	public void computedWeather(float lan, float lon){
-
+		this.weather = WeatherType.randomWeather();
+		updateLocation();
 	}
 	
 	public void setLocation(ILocation location){
@@ -66,7 +67,7 @@ public class RandomWeather implements IWeather, Runnable {
 		while(!this.stopThreadWeather){ //run while the bundle are not stop
 
 			try {
-				Thread.sleep(10000); //sleep 10 sec
+				Thread.sleep(15000); //sleep 15 sec
 			} catch (InterruptedException e) {
 				if(this.stopThreadWeather){ //"normal" interruption : the bundle need to stop
 					break;
