@@ -1,10 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Weather Plug-in
+Bundle-Name: Weather Service
 Bundle-SymbolicName: org.ups.weather
 Bundle-Version: 1.0.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Bundle-Vendor: UPS
-Import-Package: org.osgi.framework,
- org.ups.location
+Bundle-Vendor: Universite Paul Sabatier
 Export-Package: org.ups.weather

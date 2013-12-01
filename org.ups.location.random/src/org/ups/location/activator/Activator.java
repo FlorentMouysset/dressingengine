@@ -6,41 +6,28 @@ import java.util.Hashtable;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.ups.location.ILocation;
-import org.ups.location.impl.RandomLocation;
-
+import org.ups.location.impl.LocationImpl;
 
 public class Activator implements BundleActivator {
 
-	private ILocation location;
-	
-	public Activator(){
-		this.location = new RandomLocation();
-	}
+    private ILocation location = null;
 
+    @Override
+    public void start(BundleContext context) throws Exception {
+        // Initializes the location service.
+        System.out.println("Initializing the location service...");
+        location = new LocationImpl();
+        Dictionary<String, String> properties = new Hashtable<String, String>();
+        properties.put("name", "org.ups.location.random");
+        context.registerService(ILocation.class.getName(), location, properties);
+    }
 
-	/**
-	 * Start the "location" bundle and launch the "location thread".
-	 * */
-	public void start(final BundleContext context) throws Exception {
-
-		//register location bundle
-		Dictionary<String, String> properties = new Hashtable<String, String>();
-		properties.put("name", "org.ups.locationrandom");
-		context.registerService(ILocation.class.getName(), this.location, properties);
-		System.out.println("Location bundle : registration done !");
-
-		//make a runnable and launch the "location" thread
-		new Thread((Runnable) this.location).start();
-
-	}
-
-	/**
-	 * Stop the "location" bundle -> stop the "location" thread.
-	 * */
-	public void stop(final BundleContext context) throws Exception {
-		((RandomLocation) this.location).stopThread();
-		this.location = null;
-		System.out.println("Location bundle : stop, goodbye !");
-	}
+    @Override
+    public void stop(BundleContext context) throws Exception {
+        // Releases the service.
+        System.out.println("Releasing the location service...");
+        ((LocationImpl) location).terminate();
+        location = null;
+    }
 
 }

@@ -1,7 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Dressingengine Plug-in
+Bundle-Name: Dressing Suggestion Service
 Bundle-SymbolicName: org.ups.dressingengine
 Bundle-Version: 1.0.0
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Bundle-Vendor: UPS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Universite Paul Sabatier
+Bundle-Activator: org.ups.dressingengine.activator.Activator
+Export-Package: org.ups.dressingengine
+Import-Package: org.osgi.framework;version="1.7.0",
+ org.ups.weather
