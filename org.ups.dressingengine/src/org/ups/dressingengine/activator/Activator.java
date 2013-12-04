@@ -31,6 +31,7 @@ public class Activator implements BundleActivator {
     public void stop(BundleContext context) throws Exception {
         // Releases the service.
         System.out.println("Releasing the dressing suggestion service...");
+        ((DressingSuggestionImpl) suggestion).terminate();
         suggestion = null;
     }
 
