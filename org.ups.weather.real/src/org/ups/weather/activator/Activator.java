@@ -20,7 +20,7 @@ public class Activator implements BundleActivator {
         ServiceReference<?> reference = context.getServiceReference(ILocation.class.getName());
         
         // Initializes the weather service.
-        System.out.println("Initializing the weather service...");
+        System.out.println("Initializing the real weather service...");
         weather = new WeatherImpl((ILocation) context.getService(reference));
         Dictionary<String, String> properties = new Hashtable<String, String>();
         properties.put("name", "org.ups.weather.random");
