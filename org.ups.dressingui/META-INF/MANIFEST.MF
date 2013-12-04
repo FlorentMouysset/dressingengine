@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dressing UI Suggestion Service
+Bundle-SymbolicName: org.ups.dressingui
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Universite Paul Sabatier
+Bundle-Activator: org.ups.dressingui.activator.Activator
+Import-Package: org.ups.dressingengine,
+ org.eclipse.swt,
+ org.eclipse.swt.graphics,
+ org.eclipse.swt.layout,
+ org.eclipse.swt.widgets,
+ org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
