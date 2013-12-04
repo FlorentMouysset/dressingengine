@@ -14,6 +14,7 @@ public class DressingSuggestionImpl implements IDressingSuggestion {
 
     private List<IDressingSuggestionListener> listeners = new ArrayList<IDressingSuggestionListener>();
     private IWeather weather;
+    private IWeatherListener listener;
     
     /**
      * suggestion[0] = sun glasses needed
@@ -33,7 +34,7 @@ public class DressingSuggestionImpl implements IDressingSuggestion {
 
         if (this.weather != null) {
             // Listens to weather changes.
-            this.weather.addListener(new IWeatherListener() {
+            this.weather.addListener(listener = new IWeatherListener() {
 
                 @Override
                 public void weatherChanged(WeatherType newWeather) {
@@ -67,6 +68,13 @@ public class DressingSuggestionImpl implements IDressingSuggestion {
     @Override
     public boolean coatNeeded() {
         return suggestion[2];
+    }
+    
+    /**
+     * Terminates suggestion process properly.
+     */
+    public void terminate() {
+        weather.removeListener(listener);
     }
 
     /**

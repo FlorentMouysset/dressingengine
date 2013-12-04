@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Real Weather Service
+Bundle-SymbolicName: org.ups.weather.real
+Bundle-Version: 1.0.0
+Bundle-Activator: org.ups.weather.activator.Activator
+Bundle-Vendor: Universite Paul Sabatier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.ups.weather;bundle-version="1.0.0"
+Import-Package: org.osgi.framework;version="1.7.0",
+ org.ups.location
